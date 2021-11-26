@@ -18,9 +18,9 @@ import serial
 
 #! HDC1080 Sensor
 import sys
-from modules import SDL_Pi_HDC1080
+from modules.setup import SDL_Pi_HDC1080
 
-#! BMP280 Sensor
+#! MPU Sensor
 from mpu9250_jmdev.mpu_9250 import MPU9250
 from mpu9250_jmdev.registers import *
 
