@@ -3,7 +3,7 @@ from modules.mainModule import Buzzer
 from modules.transceiver import LORA
 from data.OctaCSV import OctaCSV as oc
 
-class OctaSat:
+class Houston:
     def __init__(self):
         self.Buzzer = Buzzer()
         self.LORA = LORA()
