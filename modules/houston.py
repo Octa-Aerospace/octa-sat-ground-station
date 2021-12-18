@@ -30,4 +30,4 @@ class Houston:
         
         data = self.LORA_receive()
 
-        self.black_box(file_name='../data/Houston.csv', data=data)
+        # self.black_box(file_name='../data/Houston.csv', data=data)
