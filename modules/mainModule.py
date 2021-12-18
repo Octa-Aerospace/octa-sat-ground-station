@@ -53,16 +53,16 @@ class BMP:
     def read(self, decimal):
         return self.temp(decimal), self.press(decimal), self.alt(decimal)
 
-class Buzzer:
-    def __init__(self, pin):
-        self.pin = pin
-        GPIO.setup(self.pin, GPIO.OUT)
+# class Buzzer:
+#     def __init__(self, pin):
+#         self.pin = pin
+#         GPIO.setup(self.pin, GPIO.OUT)
 
-    def beep_on(self):
-        GPIO.output(self.pin, True)
+#     def beep_on(self):
+#         GPIO.output(self.pin, True)
 
-    def beep_off(self):
-        GPIO.output(self.pin, False)
+#     def beep_off(self):
+#         GPIO.output(self.pin, False)
 
 
 
