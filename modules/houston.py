@@ -29,5 +29,6 @@ class Houston:
         # self.Buzzer_beep() #* just beep
         
         data = self.LORA_receive()
+        print(data)
 
         # self.black_box(file_name='../data/Houston.csv', data=data)
