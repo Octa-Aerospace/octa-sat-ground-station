@@ -1,15 +1,15 @@
-from modules.houston import Houston
+from modules.transceiver import LoraRF
 
-Houston = Houston()
+
+def main():
+  rf = LoraRF()
+  
+  print('Debug 1:')
+  print(rf.receivePckts())
+
+  print('\n\nDebug 2:')
+  rf.receivePckts()
 
 if __name__ == '__main__':
-    while True:
-        try:
-            Houston.start()
-            
-        except OSError:
-            print('\n[ ! ] Warning: OSError, running anyways :).\n')
-
-        except KeyboardInterrupt:
-            print("\n[ ! ] Exiting\n")
-            exit()
+  main()
+    

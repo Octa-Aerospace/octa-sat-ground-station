@@ -5,13 +5,15 @@ import busio
 
 
 class LoraRF:
-	def __init__(self):
+	def __init__(self) -> None:
+		self.receivePckts = self.receivePckts()
 		CS = digitalio.DigitalInOut(board.CE1)
 		RESET = digitalio.DigitalInOut(board.D25)
 		spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 		BAUDRATE = 1000000
+		
 
-	def receivePckts(self):
+	def receivePckts(self) -> str:
 		rfm9x = adafruit_rfm9x.RFM9x(
 			self.spi, self.CS, self.RESET, 
 			915.0,
@@ -34,4 +36,4 @@ class LoraRF:
 				print('[ + ] SNR: {0} dB'.format(snr))
 				print('[ + ] Data (raw bytes): {0}'.format(packet))
 				
-				return packet
+				return str(packet, 'utf-8')
