@@ -15,7 +15,9 @@ class LoraRF:
 
 	def receivePckts(self) -> str:
 		rfm9x = adafruit_rfm9x.RFM9x(
-			self.spi, self.CS, self.RESET, 
+			spi,
+			CS,
+			RESET,
 			915.0,
 			baudrate=self.BAUDRATE,
 		)
