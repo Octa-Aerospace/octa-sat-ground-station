@@ -6,7 +6,6 @@ import busio
 
 class LoraRF:
 	def __init__(self) -> None:
-		self.receivePckts = self.receivePckts()
 		self.cs = digitalio.DigitalInOut(board.CE1)
 		self.reset = digitalio.DigitalInOut(board.D25)
 		self.spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
