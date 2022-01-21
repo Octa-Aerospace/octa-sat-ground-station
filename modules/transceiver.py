@@ -26,7 +26,7 @@ class LoraRF:
 		try: 
 			while True:
 				packet = rfm9x.receive()
-				rssi = rfm9x.rssi # Signal strength of last received message
+				rssi = rfm9x.last_rssi # Signal strength of last received message
 				snr = rfm9x.snr # Signal to noise ratio
 
 				if packet is None:
