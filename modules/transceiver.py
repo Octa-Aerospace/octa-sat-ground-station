@@ -5,22 +5,20 @@ import busio
 
 
 class LoraRF:
-
-
 	def __init__(self) -> None:
 		self.receivePckts = self.receivePckts()
-		self.CS = digitalio.DigitalInOut(board.CE1)
-		self.RESET = digitalio.DigitalInOut(board.D25)
+		self.cs = digitalio.DigitalInOut(board.CE1)
+		self.reset = digitalio.DigitalInOut(board.D25)
 		self.spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
-		self.BAUDRATE = 1000000
+		self.b_rate = 1000000
 
 	def receivePckts(self) -> str:
 		rfm9x = adafruit_rfm9x.RFM9x(
 			self.spi,
-			self.CS,
-			self.RESET,
+			self.cs,
+			self.reset,
 			915.0,
-			baudrate=self.BAUDRATE,
+			baudrate=self.b_rate,
 		)
 		
 		rfm9x.tx_power = 23 # (5 - 23)dBm
