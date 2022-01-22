@@ -37,7 +37,7 @@ class LoraRF:
 					print('[ + ] SNR: {0} dB'.format(snr))
 					print('[ + ] Data (raw bytes): {0}'.format(packet))
 					
-					return str(packet, 'ascii')
+					print(str(packet))
 		except KeyboardInterrupt:
 			print('\n[ x ] Listening stopped.')
 			return None
