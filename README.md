@@ -1,1 +1,1 @@
-# OctaSat - Houston software
+# OctaSat - Ground station software
