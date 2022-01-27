@@ -1,5 +1,5 @@
 from data.QuinteroCSV import QuinteroCSV
-from modules.transceiver.py import LoraRF
+from modules.transceiver import LoraRF
 
 class Quintero:
     def __init__(self):
