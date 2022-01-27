@@ -1,9 +1,12 @@
-from modules.transceiver import LoraRF
+from modules.Quintero import Quintero
 
-
-def main():
-  rf = LoraRF()
-  rf.receivePckts()
+Quintero = Quintero()
 
 if __name__ == '__main__':
-  main()
+    while True:
+        try:
+            Quintero.start()
+
+        except KeyboardInterrupt:
+            print("\n[ ! ] Exiting\n")
+            exit()

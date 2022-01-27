@@ -1,4 +1,1 @@
-rich
-pynmea2
-pyserial
 adafruit-circuitpython-rfm9x
