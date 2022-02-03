@@ -16,6 +16,6 @@ class Quintero:
         data = self.rf.unpack(packed_data)
 
         self.black_box(file_name="/home/pi/Desktop/OctaSat/data/QuinteroCSV.csv", data=data)
-        
+
         for element in data:
             print(element.upper() + ":" + str(data[element]))
