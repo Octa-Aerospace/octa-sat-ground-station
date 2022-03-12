@@ -13,9 +13,12 @@ class Quintero:
 
     def start(self):
         packed_data = self.rf.receivePckts()
+        # print(packed_data)
         data = self.rf.unpack(packed_data)
+        # print(data)
 
-        self.black_box(file_name="/home/pi/Desktop/OctaSat/data/QuinteroCSV.csv", data=data)
+        if data != None:
+            self.black_box(file_name="/home/pi/Desktop/OctaSat/data/QuinteroCSV.csv", data=data)
 
-        for element in data:
-            print(element.upper() + ":" + str(data[element]))
+            for element in data:
+                print(element.upper() + ":" + str(data[element]))
