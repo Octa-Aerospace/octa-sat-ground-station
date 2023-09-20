@@ -184,6 +184,25 @@ def get_orientation_from_csv():
     return {"angle_deg": angle_deg}
 
 
+#differences
+@app.get("/differences")
+def get_differences():
+    df = pd.read_csv(CSV_OCTA_PATH, delimiter=',')
 
+    last_row = df.iloc[-1]
+    penultimate_row = df.iloc[-2]
+    
+    last_time_parts = last_row["time"].split(", ")[1].split(":")
+    penultimate_time_parts = penultimate_row["time"].split(", ")[1].split(":")
 
+    #convertir horas y minutos en segundos y calcular la diferencia
+    last_seconds = int(last_time_parts[0]) * 3600 + int(last_time_parts[1]) * 60 + int(last_time_parts[2])
+    penultimate_seconds = int(penultimate_time_parts[0]) * 3600 + int(penultimate_time_parts[1]) * 60 + int(penultimate_time_parts[2])
+    difTiempo = last_seconds - penultimate_seconds
 
+    differences = {
+        "difAltitud": round(last_row["altitude"] - penultimate_row["altitude"], 2),
+        "difTiempo": difTiempo
+    }
+
+    return differences
