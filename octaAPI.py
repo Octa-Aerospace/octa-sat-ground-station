@@ -185,7 +185,7 @@ def get_orientation_from_csv():
 
 
 #differences
-@app.get("/differences")
+@app.get("/velocity")
 def get_differences():
     df = pd.read_csv(CSV_OCTA_PATH, delimiter=',')
 
@@ -200,9 +200,17 @@ def get_differences():
     penultimate_seconds = int(penultimate_time_parts[0]) * 3600 + int(penultimate_time_parts[1]) * 60 + int(penultimate_time_parts[2])
     difTiempo = last_seconds - penultimate_seconds
 
-    differences = {
-        "difAltitud": round(last_row["altitude"] - penultimate_row["altitude"], 2),
-        "difTiempo": difTiempo
-    }
 
-    return differences
+    difAltitude= round(last_row["altitude"] - penultimate_row["altitude"], 2)
+    
+    
+    if difTiempo == 0:
+        velocityDic = {
+        "velocity":  299792458 # c
+        }
+    else:    
+        velocityDic = {
+            "velocity": difAltitude / difTiempo
+        }
+
+    return velocityDic
